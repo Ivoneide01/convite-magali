@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>#Larafaz1🎉</title>
+
+    <meta property="og:title" content="#Larafaz1🎉" />
+    <meta property="og:description" content="Venha celebrar comigo essa data tão especial!" />
+    <meta property="og:url" content="https://convite-magali.vercel.app/" />
+    <meta property="og:type" content="website" />
+
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+
+      html, body {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        background-color: rgb(49 129 49);
+      }
+       * {
+      margin: 0;
+      padding: 0;
+    }
+
+    html, body {
+      height: 100%;
+    }
+
+    .imagem-fundo {
+      background-image: url('sua-imagem.jpg'); /* Substitua pelo caminho da sua imagem */
+      background-size: cover;     /* cobre toda a área */
+      background-position: center; /* centraliza a imagem */
+      background-repeat: no-repeat;
+      width: 100%;
+      height: 100%;
+    }
+
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .container {
+        position: relative;
+        width: 100%;
+        max-width: 600px;
+        aspect-ratio: 9 / 16;
+        background-color: rgba(246,53,68,255);
+      }
+
+      .envelope,
+      .convite,
+      .lista-presentes {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        cursor: pointer;
+        transition: opacity 0.5s ease-in-out;
+      }
+
+      .convite,
+      .lista-presentes {
+        opacity: 0;
+        pointer-events: none;
+        z-index: 0;
+        outline: none;
+        user-select: none;
+        -webkit-tap-highlight-color: transparent;
+      }
+
+      .convite.mostrar,
+      .lista-presentes.mostrar {
+        opacity: 1;
+        pointer-events: auto;
+        z-index: 1;
+      }
+       .gif-canto {
+      position: fixed;        /* Fixa na tela mesmo com rolagem */
+      bottom: 10px;           /* Distância da parte de baixo */
+      right: 5px;            /* Distância da direita */
+      width: 125px;           /* Tamanho do GIF */
+      height: auto;           /* Mantém proporção */
+      z-index: 9999; 
+      pointer-events: none;
+    }
+      .gif-direita {
+    position: fixed;
+      bottom: 680px;
+      left: 0px;
+      width: 200px;
+      height: auto;
+      z-index: 9999; /* Bem alto para garantir que fique na frente */
+      pointer-events: none;
+    }
+
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <img src="/melancia-2.jpg" alt="Envelope" class="envelope" id="envelope" />
+    <video src="/video-lara-magali.mp4" class="convite" id="convite" autoplay muted loop></video>
+      <img src="3.png" alt="Lista de Presentes" class="lista-presentes" id="lista-presentes" />
+      <audio id="somConvite" src="/audio-magali.mp3"></audio> <!-- Substitua aqui -->
+    </div>
+    <img src="/magali-com-gato.gif" class="gif-canto" alt="GIF no canto">
+     <img src="/gato-gif.gif" class="gif-direita" alt="GIF à direita">
+
+    <script>
+      const audio = document.getElementById('somConvite')
+
+      // Envelope para Convite
+      document.getElementById('envelope').addEventListener('click', function () {
+        audio.play()
+        this.style.opacity = '0'
+        setTimeout(() => {
+          this.style.display = 'none'
+          const convite = document.getElementById('convite')
+          convite.classList.add('mostrar')
+          convite.style.pointerEvents = 'auto'
+        }, 500)
+      })
+
+      // Clique no Convite
+      document.getElementById('convite').addEventListener('click', event => {
+        const rect = event.target.getBoundingClientRect()
+        const x = event.clientX - rect.left
+        const y = event.clientY - rect.top
+        const relX = (x / rect.width) * 100
+        const relY = (y / rect.height) * 100
+        // Aqui você pode colocar alguma lógica se quiser reagir ao clique
+      })
+    </script>
+  </body>
+</html>

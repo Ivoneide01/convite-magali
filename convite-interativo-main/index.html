@@ -19,7 +19,7 @@
         margin: 0;
         padding: 0;
         height: 100%;
-        background-color: rgb(49 129 49);
+        background-color: rgba(246,53,68,255);
       }
        * {
       margin: 0;
@@ -47,10 +47,16 @@
 
       .container {
         position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
         width: 100%;
         max-width: 600px;
         aspect-ratio: 9 / 16;
         background-color: rgba(246,53,68,255);
+        padding: 10px;
+        overflow: hidden;
       }
 
       .envelope,
@@ -62,6 +68,7 @@
         object-fit: contain;
         cursor: pointer;
         transition: opacity 0.5s ease-in-out;
+
       }
 
       .convite,
@@ -89,14 +96,17 @@
       z-index: 9999; 
       pointer-events: none;
     }
-      .gif-direita {
-    position: fixed;
-      bottom: 680px;
-      left: 0px;
-      width: 200px;
+    .git-comendo-melancia{/* gato sozinho */
+      position: fixed;
+      border-top: 0px;
+      left: 0%;
+      right: auto;
+      width: 150px;
+      z-index: 9999;
+      max-width: 100%;
       height: auto;
-      z-index: 9999; /* Bem alto para garantir que fique na frente */
-      pointer-events: none;
+      
+
     }
     @media (max-height: 344px) {
   .gif-direita {
@@ -108,18 +118,16 @@
   </head>
   <body>
     <div class="container">
-      <img src="/melancia-2.jpg" alt="Envelope" class="envelope" id="envelope" />
-    <video src="/video-lara-magali.mp4" class="convite" id="convite" autoplay muted loop></video>
+      <img src="/convite-interativo-main/melancia.png" alt="Envelope" class="envelope" id="envelope" />
+    <video src="/convite-interativo-main/video-lara-magali.mp4" class="convite" id="convite" autoplay muted loop></video>
       <img src="3.png" alt="Lista de Presentes" class="lista-presentes" id="lista-presentes" />
-      <audio id="somConvite" src="/audio-magali.mp3"></audio> <!-- Substitua aqui -->
-    </div>
-    <img src="/magali-com-gato.gif" class="gif-canto" alt="GIF no canto">
-     <img src="/gato-gif.gif" class="gif-direita" alt="GIF à direita">
-
+      <img src="/convite-interativo-main/gato-gif.gif" class="git-comendo-melancia" alt="comendo melancia">
+      <audio id="somConvite" src="/convite-interativo-main/audio-magali.mp3"></audio> <!-- Substitua aqui -->
+    </div> 
+    <img src="/convite-interativo-main/magali-com-gato.gif" class="gif-canto" alt="GIF no canto">
     <script>
       const audio = document.getElementById('somConvite')
 
-      // Envelope para Convite
       document.getElementById('envelope').addEventListener('click', function () {
         audio.play()
         this.style.opacity = '0'
@@ -131,14 +139,13 @@
         }, 500)
       })
 
-      // Clique no Convite
       document.getElementById('convite').addEventListener('click', event => {
         const rect = event.target.getBoundingClientRect()
         const x = event.clientX - rect.left
         const y = event.clientY - rect.top
         const relX = (x / rect.width) * 100
         const relY = (y / rect.height) * 100
-        // Aqui você pode colocar alguma lógica se quiser reagir ao clique
+
       })
     </script>
   </body>

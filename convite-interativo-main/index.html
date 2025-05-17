@@ -175,6 +175,52 @@
       width: 60px;
     }
   }
+  .envelope,
+.convite,
+.lista-presentes {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  object-fit: contain; /* agora a imagem ou vídeo será toda visível */
+  cursor: pointer;
+  transition: opacity 0.5s ease-in-out;
+  top: 0;
+  left: 0;
+}
+
+.gif-canto {
+  position: fixed;
+  bottom: 10px;
+  right: 5px;
+  width: 120px; /* menor para telas menores */
+  height: auto;
+  z-index: 9999;
+  pointer-events: none;
+}
+
+.git-comendo-melancia {
+  position: fixed;
+  left: 0%;
+  width: 120px;
+  z-index: 9999;
+  max-width: 100%;
+  height: auto;
+}
+.container {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  background-color: rgba(246, 53, 68, 255);
+  overflow: hidden;
+  background-image: url("/convite-interativo-main/fundo-teste-2.jpg");
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
     </style>
   </head>
 
